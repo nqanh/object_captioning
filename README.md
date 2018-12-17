@@ -4,10 +4,8 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 ### Contents
 1. [Requirements](#requirements)
-2. [Demo](#demo)
+2. [Quick Demo](#demo)
 3. [Training](#training)
-4. [Notes](#notes)
-
 
 ### Requirements
 
@@ -24,7 +22,7 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 	
 ### Training
 
-1. We train the network on [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/)
+1. We train the network on [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset
 	- We need to format Flickr5k dataset as in Pascal-VOC dataset for training.
 	- For your convinience, we did it for you. Just download this file ([Google Drive](https://drive.google.com/file/d/1FIAvc9AsSGYEYQmvJ1zH51FhXPos8vEc/view?usp=sharing) and extract it into your `$PROJECT_PATH\data` folder.
 
@@ -34,13 +32,18 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 If you find this source code useful in your research, please consider citing:
 
-	@inproceedings{AffordanceNet18,
-	  title={AffordanceNet: An End-to-End Deep Learning Approach for Object Affordance Detection},
-	  author={Do, Thanh-Toan and Nguyen, Anh and Reid, Ian},
-	  booktitle={International Conference on Robotics and Automation (ICRA)},
-	  year={2018}
-	}
-
+@article{DBLP:journals/corr/abs-1803-06152,
+  author    = {Anh Nguyen and
+               Thanh{-}Toan Do and
+               Ian D. Reid and
+               Darwin G. Caldwell and
+               Nikos G.Tsagarakis},
+  title     = {Object Captioning and Retrieval with Natural Language},
+  journal   = {CoRR},
+  volume    = {abs/1803.06152},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1803.06152},
+}
 
 
 ### License
