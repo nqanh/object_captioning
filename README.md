@@ -1,7 +1,6 @@
 ## [Object Captioning and Retrieval with Natural Language](https://arxiv.org/pdf/1803.06152.pdf)
 By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
-#![objcaption](https://raw.githubusercontent.com/nqanh/affordance-net/master/tools/temp_output/iit_aff_dataset.jpg "affordance-net")
 
 ### Contents
 1. [Requirements](#requirements)
@@ -41,20 +40,6 @@ If you find this source code useful in your research, please consider citing:
 	  booktitle={International Conference on Robotics and Automation (ICRA)},
 	  year={2018}
 	}
-
-
-If you use [IIT-AFF dataset](https://sites.google.com/site/iitaffdataset/), please consider citing:
-
-@article{DBLP:journals/corr/abs-1803-06152,
-  author    = {Anh Nguyen and Thanh{-}Toan Do and Ian D. Reid and
-               Darwin G. Caldwell and
-               Nikos G. Tsagarakis},
-  title     = {Object Captioning and Retrieval with Natural Language},
-  journal   = {CoRR},
-  volume    = {abs/1803.06152},
-  year      = {2018},
-  url       = {http://arxiv.org/abs/1803.06152},
-}
 
 
 
