@@ -1,0 +1,709 @@
++ echo Logging output to experiments/logs/vgg16_voc_2007_trainval__vgg16.txt.2017-11-22_11-58-06
+Logging output to experiments/logs/vgg16_voc_2007_trainval__vgg16.txt.2017-11-22_11-58-06
++ set +x
++ '[' '!' -f output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_70000.ckpt.index ']'
++ [[ ! -z '' ]]
++ python ./tools/trainval_net.py --weight data/imagenet_weights/vgg16.ckpt --imdb voc_2007_trainval --imdbval voc_2007_test --iters 70000 --cfg experiments/cfgs/vgg16.yml --net vgg16 --set ANCHOR_SCALES '[8,16,32]' ANCHOR_RATIOS '[0.5,1,2]' TRAIN.STEPSIZE '[50000]'
+Couldn't import dot_parser, loading of dot files will not be possible.
+Called with args:
+Namespace(cfg_file='experiments/cfgs/vgg16.yml', imdb_name='voc_2007_trainval', imdbval_name='voc_2007_test', max_iters=70000, net='vgg16', set_cfgs=['ANCHOR_SCALES', '[8,16,32]', 'ANCHOR_RATIOS', '[0.5,1,2]', 'TRAIN.STEPSIZE', '[50000]'], tag=None, weight='data/imagenet_weights/vgg16.ckpt')
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'DATA_DIR': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data',
+ 'DEBUG_VERBOSE': 1,
+ 'EXP_DIR': 'vgg16',
+ 'IXTOWORD_PATH': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/Words/ixtoword.npy',
+ 'MATLAB': 'matlab',
+ 'MAX_PHRASE_LENGTH': 10,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[ 102.9801,  115.9465,  122.7717]]]),
+ 'POOLING_MODE': 'crop',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn',
+ 'RPN_CHANNELS': 512,
+ 'SPECIAL_TOKEN': 0,
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 256,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'vgg16_faster_rcnn',
+           'STEPSIZE': [50000],
+           'SUMMARY_INTERVAL': 180,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True,
+ 'VIS_VERBOSE': 0,
+ 'batch_size': 1,
+ 'bias_init_vector': None,
+ 'dim_img_feature': 49,
+ 'num_lstm_hidden_units': 512,
+ 'num_lstm_steps': 10,
+ 'vocab_size': 210}
+--- trainval_net.py - IMDB name:  voc_2007_trainval
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+voc_2007_trainval gt roidb loaded from /home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/cache/voc_2007_trainval_gt_roidb.pkl
+done
+Preparing training data...
+done
+140 roidb entries
+Output will be saved to `/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default`
+TensorFlow summaries will be saved to `/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/tensorboard/vgg16/voc_2007_trainval/default`
+Loaded dataset `voc_2007_test` for training
+Set proposal method: gt
+Preparing training data...
+voc_2007_test gt roidb loaded from /home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/cache/voc_2007_test_gt_roidb.pkl
+done
+30 validation roidb entries
+Filtered 0 roidb entries: 140 -> 140
+Filtered 0 roidb entries: 30 -> 30
+2017-11-22 11:58:07.364831: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2017-11-22 11:58:07.602386: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: GeForce GTX TITAN X major: 5 minor: 2 memoryClockRate(GHz): 1.076
+pciBusID: 0000:03:00.0
+totalMemory: 11.92GiB freeMemory: 11.45GiB
+2017-11-22 11:58:07.602420: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:03:00.0, compute capability: 5.2)
+Solving...
+network.py ************** rois shape                <unknown>
+network.py ************** roi_scores shape          <unknown>
+network.py ************** labels shape              <unknown>
+network.py ************** bbox_targets shape        <unknown>
+network.py ************** bbox_inside_weights shape <unknown>
+network.py ************** sentences shape           <unknown>
+network.py ************** answers   shape           <unknown>
+network.py ############## rois shape                (256, 5)
+network.py ############## roi_scores shape          (256,)
+network.py ############## labels shape              (256, 1)
+network.py ############## bbox_targets shape        (256, 20)
+network.py ############## bbox_inside_weights shape (256, 20)
+network.py ############## sentences shape           <unknown>
+network.py ############## answers   shape           <unknown>
+/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gradients_impl.py:96: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+Loading initial model weights from data/imagenet_weights/vgg16.ckpt
+Variables restored: vgg_16/conv1/conv1_1/biases:0
+Variables restored: vgg_16/conv1/conv1_2/weights:0
+Variables restored: vgg_16/conv1/conv1_2/biases:0
+Variables restored: vgg_16/conv2/conv2_1/weights:0
+Variables restored: vgg_16/conv2/conv2_1/biases:0
+Variables restored: vgg_16/conv2/conv2_2/weights:0
+Variables restored: vgg_16/conv2/conv2_2/biases:0
+Variables restored: vgg_16/conv3/conv3_1/weights:0
+Variables restored: vgg_16/conv3/conv3_1/biases:0
+Variables restored: vgg_16/conv3/conv3_2/weights:0
+Variables restored: vgg_16/conv3/conv3_2/biases:0
+Variables restored: vgg_16/conv3/conv3_3/weights:0
+Variables restored: vgg_16/conv3/conv3_3/biases:0
+Variables restored: vgg_16/conv4/conv4_1/weights:0
+Variables restored: vgg_16/conv4/conv4_1/biases:0
+Variables restored: vgg_16/conv4/conv4_2/weights:0
+Variables restored: vgg_16/conv4/conv4_2/biases:0
+Variables restored: vgg_16/conv4/conv4_3/weights:0
+Variables restored: vgg_16/conv4/conv4_3/biases:0
+Variables restored: vgg_16/conv5/conv5_1/weights:0
+Variables restored: vgg_16/conv5/conv5_1/biases:0
+Variables restored: vgg_16/conv5/conv5_2/weights:0
+Variables restored: vgg_16/conv5/conv5_2/biases:0
+Variables restored: vgg_16/conv5/conv5_3/weights:0
+Variables restored: vgg_16/conv5/conv5_3/biases:0
+Variables restored: vgg_16/fc6/biases:0
+Variables restored: vgg_16/fc7/biases:0
+Loaded.
+Fix VGG16 layers..
+Fixed.
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1], dtype=int32), 'width': 500, 'max_classes': array([1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/1021442086.jpg', 'flipped': False, 'all_phrases': array([[  0, 199, 187, 198,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 187,  41,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 198,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[  0,   1, 353, 329]], dtype=uint16), 'max_overlaps': array([ 1.], dtype=float32), 'height': 334, 'seg_areas': array([ 116466.], dtype=float32), 'gt_overlaps': <1x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 1 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 600, 898, 3)
+minibatch.py - blobs_bt_boxes shape (1, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[   0.            1.79640722  634.13171387  591.01794434    1.        ]]
+/usr/local/lib/python2.7/dist-packages/numpy/core/numeric.py:301: FutureWarning: in the future, full((256, 10), 0) will return an array of dtype('int64')
+  format(shape, fill_value, array(fill_value).dtype), FutureWarning)
+proposal_target_layer.py -------- sentences          [[199 187 198 ...,   0   0   0]
+ [199 187  41 ...,   0   0   0]
+ [199 198   0 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199 198   0 ...,   0   0   0]
+ [199 187 198 ...,   0   0   0]
+ [199 187 198 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 600, 898, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [0 0 0 0 0 0 0 0 0 0 0 0 0]
+proposal_target_layer.py -- fg_rois_per_img           13
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.            0.          143.02297974  845.59991455  553.8449707 ]
+ [   0.           91.99746704    0.          474.02236938  599.        ]
+ [   0.            0.          238.16598511  712.39605713  559.75793457]
+ ..., 
+ [   0.          188.76559448  183.15856934  296.56222534  419.48120117]
+ [   0.          566.40631104  253.78657532  764.6708374   362.5406189 ]
+ [   0.          613.1932373     0.          760.19995117   95.30989838]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  199.  187.  198.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  187.   41.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  198.    0.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1], dtype=int32), 'width': 450, 'max_classes': array([1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/10082347.jpg', 'flipped': False, 'all_phrases': array([[  0, 112, 173, 198,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 112, 198,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 198,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199,  11, 198,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[  0,   7, 323, 334]], dtype=uint16), 'max_overlaps': array([ 1.], dtype=float32), 'height': 338, 'seg_areas': array([ 106272.], dtype=float32), 'gt_overlaps': <1x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 1 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 600, 799, 3)
+minibatch.py - blobs_bt_boxes shape (1, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[   0.           12.42603588  573.37280273  592.89941406    1.        ]]
+proposal_target_layer.py -------- sentences          [[199 198   0 ...,   0   0   0]
+ [199  11 198 ...,   0   0   0]
+ [199 112 198 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[112 173 198 ...,   0   0   0]
+ [199 198   0 ...,   0   0   0]
+ [199 198   0 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 600, 799, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+proposal_target_layer.py -- fg_rois_per_img           15
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.            0.           56.94960022  561.63171387  510.36297607]
+ [   0.            0.            0.          798.          442.45556641]
+ [   0.           68.8767395   126.36923218  666.7265625   599.        ]
+ ..., 
+ [   0.           41.27151489  377.4760437   244.84475708  440.60079956]
+ [   0.          733.51776123  141.7600708   798.          325.31503296]
+ [   0.          599.5335083     0.          723.26544189   64.26711273]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  112.  173.  198.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  112.  198.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  198.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.   11.  198.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1, 1, 1, 1], dtype=int32), 'width': 500, 'max_classes': array([1, 1, 1, 1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/1028982826.jpg', 'flipped': False, 'all_phrases': array([[  0,  42, 200,  54,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 198,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 126,  84,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 208, 179, 163, 201,  54,   0,   0,   0,   0,   0],
+       [  1, 130,  84,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  2, 199,  43,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  3, 199, 165, 101, 198,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[296, 207, 351, 337],
+       [227, 207, 290, 337],
+       [ 65, 116, 154, 230],
+       [148, 122, 219, 231]], dtype=uint16), 'max_overlaps': array([ 1.,  1.,  1.,  1.], dtype=float32), 'height': 376, 'seg_areas': array([  7336.,   8384.,  10350.,   7920.], dtype=float32), 'gt_overlaps': <4x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 4 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 600, 798, 3)
+minibatch.py - blobs_bt_boxes shape (4, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[ 472.34042358  330.31915283  560.10638428  537.76593018    1.        ]
+ [ 362.23403931  330.31915283  462.76596069  537.76593018    1.        ]
+ [ 103.72340393  185.10638428  245.74467468  367.02127075    1.        ]
+ [ 236.17021179  194.68084717  349.46807861  368.61703491    1.        ]]
+proposal_target_layer.py -------- sentences          [[199  43   0 ...,   0   0   0]
+ [199 165 101 ...,   0   0   0]
+ [199 165 101 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199  43   0 ...,   0   0   0]
+ [199 165 101 ...,   0   0   0]
+ [199 165 101 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 600, 798, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [2 3 3 3 3 2 0 2 1 0 2 1 1 3 2 1 0 2 2 3 3]
+proposal_target_layer.py -- fg_rois_per_img           21
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.  1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.          132.26019287  170.4942627   257.30334473  315.3598938 ]
+ [   0.          203.08117676  223.62472534  347.89904785  370.16964722]
+ [   0.          271.0546875   183.85809326  342.11395264  410.64782715]
+ ..., 
+ [   0.          557.65197754  194.54051208  663.62805176  464.45849609]
+ [   0.            4.01057434  313.48605347  155.21151733  378.22366333]
+ [   0.           54.68060303   91.48023987  213.88378906  164.26382446]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.   42.  200.   54.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  198.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  126.   84.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  208.  179.  163.  201.   54.    0.    0.    0.    0.    0.]
+ [   1.  130.   84.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   2.  199.   43.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   3.  199.  165.  101.  198.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1, 1], dtype=int32), 'width': 375, 'max_classes': array([1, 1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/1026792563.jpg', 'flipped': False, 'all_phrases': array([[  0, 199,  17, 101, 150,   0,   0,   0,   0,   0,   0],
+       [  1,  13,   0,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[  1,   0, 285, 305],
+       [100,  37, 303, 220]], dtype=uint16), 'max_overlaps': array([ 1.,  1.], dtype=float32), 'height': 500, 'seg_areas': array([ 87210.,  37536.], dtype=float32), 'gt_overlaps': <2x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 2 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 800, 600, 3)
+minibatch.py - blobs_bt_boxes shape (2, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[   1.60000002    0.          456.          488.            1.        ]
+ [ 160.           59.20000076  484.79998779  352.            1.        ]]
+proposal_target_layer.py -------- sentences          [[199  17 101 ...,   0   0   0]
+ [199  17 101 ...,   0   0   0]
+ [199  17 101 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199  17 101 ...,   0   0   0]
+ [199  17 101 ...,   0   0   0]
+ [199  17 101 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 800, 600, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [0 0 0 1 0 0 0 0 0 0 1 0 1 1 0 1 1 0 0 0 0 0 0 1 1 1 1 0 1 1 0 1]
+proposal_target_layer.py -- fg_rois_per_img           32
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.           82.93727112    0.          420.56658936  665.52270508]
+ [   0.            0.            0.          528.65441895  274.8951416 ]
+ [   0.            0.          126.5970459   599.          434.04821777]
+ ..., 
+ [   0.          413.43557739    0.          588.51269531   83.87226868]
+ [   0.          276.69009399  168.1855011   437.81033325  621.628479  ]
+ [   0.          426.91522217   58.70222473  530.5914917   349.74969482]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  199.   17.  101.  150.    0.    0.    0.    0.    0.    0.]
+ [   1.   13.    0.    0.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1, 1], dtype=int32), 'width': 332, 'max_classes': array([1, 1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/1011572216.jpg', 'flipped': False, 'all_phrases': array([[  0, 156,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 108, 156,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 199,  85,  48,  33,   0,   0,   0,   0,   0,   0],
+       [  1, 199,  33,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[126, 141, 284, 499],
+       [ 62, 103, 183, 499]], dtype=uint16), 'max_overlaps': array([ 1.,  1.], dtype=float32), 'height': 500, 'seg_areas': array([ 57081.,  48434.], dtype=float32), 'gt_overlaps': <2x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 2 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 904, 600, 3)
+minibatch.py - blobs_bt_boxes shape (2, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[ 227.71084595  254.8192749   513.25299072  901.80725098    1.        ]
+ [ 112.04819489  186.14457703  330.72290039  901.80725098    1.        ]]
+proposal_target_layer.py -------- sentences          [[199  33   0 ...,   0   0   0]
+ [199 108 156 ...,   0   0   0]
+ [199  85  48 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199  85  48 ...,   0   0   0]
+ [156   0   0 ...,   0   0   0]
+ [199  33   0 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 904, 600, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [1 0 1 1 1 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 1 0 1 0 1 1 0]
+proposal_target_layer.py -- fg_rois_per_img           32
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.          151.70903015    0.          314.41064453  795.06958008]
+ [   0.          232.35137939  449.42111206  564.16815186  903.        ]
+ [   0.           57.92718506  245.5748291   330.98034668  903.        ]
+ ..., 
+ [   0.          165.4899292   111.44628906  479.23529053  673.9642334 ]
+ [   0.          255.27174377    0.          481.37518311  311.99255371]
+ [   0.          183.66291809  178.38024902  279.37088013  412.66082764]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  156.    0.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  108.  156.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  199.   85.   48.   33.    0.    0.    0.    0.    0.    0.]
+ [   1.  199.   33.    0.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1, 3], dtype=int32), 'width': 500, 'max_classes': array([1, 3]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/1009692167.jpg', 'flipped': False, 'all_phrases': array([[  0, 169,  51,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  0,  29, 138,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199,  94, 198,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199,  47,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  1,  29, 203,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 199,  58,  93, 203,   0,   0,   0,   0,   0,   0],
+       [  1,  29,  35, 203,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 199,   4,  28, 203,   0,   0,   0,   0,   0,   0],
+       [  1, 199,  96, 203,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[118, 103, 201, 296],
+       [106, 192, 217, 320]], dtype=uint16), 'max_overlaps': array([ 1.,  1.], dtype=float32), 'height': 333, 'seg_areas': array([ 16296.,  14448.], dtype=float32), 'gt_overlaps': <2x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 2 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 600, 901, 3)
+minibatch.py - blobs_bt_boxes shape (2, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (2000,)
+proposal_target_layer.py -- gt_boxes              [[ 212.61260986  185.58558655  362.16217041  533.33331299    1.        ]
+ [ 190.99099731  345.94595337  390.99099731  576.57659912    3.        ]]
+proposal_target_layer.py -------- sentences          [[199   4  28 ...,   0   0   0]
+ [199  47   0 ...,   0   0   0]
+ [ 29  35 203 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199  58  93 ...,   0   0   0]
+ [169  51   0 ...,   0   0   0]
+ [199   4  28 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 600, 901, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [1 0 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 1 1 1]
+proposal_target_layer.py -- fg_rois_per_img           20
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 3.  1.  3.  3.  3.  3.  3.  3.  3.  1.  3.  3.  3.  1.  1.  1.  3.  3.
+  3.  3.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.          194.85566711  316.33679199  331.52563477  552.47827148]
+ [   0.          206.55528259  179.61050415  381.14929199  599.        ]
+ [   0.          201.19981384  351.14605713  411.8392334   480.73284912]
+ ..., 
+ [   0.            0.          223.66418457   57.60918427  599.        ]
+ [   0.          742.18408203    0.          900.          254.73710632]
+ [   0.          333.48651123  197.72436523  676.46105957  362.26324463]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  169.   51.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.   29.  138.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.   94.  198.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.   47.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.   29.  203.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  199.   58.   93.  203.    0.    0.    0.    0.    0.    0.]
+ [   1.   29.   35.  203.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  199.    4.   28.  203.    0.    0.    0.    0.    0.    0.]
+ [   1.  199.   96.  203.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
+minibatch.py ===========================================================================================================
+minibatch.py - roidb                [{'gt_classes': array([1, 1], dtype=int32), 'width': 500, 'max_classes': array([1, 1]), 'image': '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/JPEGImages/102351840.jpg', 'flipped': False, 'all_phrases': array([[  0, 199, 198,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  0, 199, 205,   0,   0,   0,   0,   0,   0,   0,   0],
+       [  1, 126,  84,   0,   0,   0,   0,   0,   0,   0,   0]], dtype=uint32), 'boxes': array([[ 95,   6, 250, 149],
+       [ 93,   5, 145,  96]], dtype=uint16), 'max_overlaps': array([ 1.,  1.], dtype=float32), 'height': 198, 'seg_areas': array([ 22464.,   4876.], dtype=float32), 'gt_overlaps': <2x5 sparse matrix of type '<type 'numpy.float32'>'
+	with 2 stored elements in Compressed Sparse Row format>}]
+minibatch.py - number of images     1
+minibatch.py - blobs_data shape     (1, 396, 1000, 3)
+minibatch.py - blobs_bt_boxes shape (2, 5)
+minibatch.py - blobs_im_info shape  (3,)
+proposal_target_layer.py -- max_overlaps shape    (1776,)
+proposal_target_layer.py -- gt_boxes              [[ 190.   12.  500.  298.    1.]
+ [ 186.   10.  290.  192.    1.]]
+proposal_target_layer.py -------- sentences          [[199 198   0 ...,   0   0   0]
+ [199 198   0 ...,   0   0   0]
+ [199 198   0 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -------- answers            [[199 205   0 ...,   0   0   0]
+ [199 205   0 ...,   0   0   0]
+ [199 205   0 ...,   0   0   0]
+ ..., 
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]
+ [  0   0   0 ...,   0   0   0]]
+proposal_target_layer.py -- img shape                 (1, 396, 1000, 3)
+proposal_target_layer.py -- selected_rois_object_idx  [0 0 0 1 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0]
+proposal_target_layer.py -- fg_rois_per_img           28
+proposal_target_layer.py -- labels shape              (256,)
+proposal_target_layer.py -- rois shape                (256, 5)
+proposal_target_layer.py -- roi_scores shape          (256, 1)
+proposal_target_layer.py -- bbox_targets shape        (256, 20)
+proposal_target_layer.py -- bbox_inside_weights shape (256, 20)
+proposal_target_layer.py -- labels value              [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.]
+proposal_target_layer.py -- rois value                [[   0.          208.793396     12.3157959   497.19445801  230.26174927]
+ [   0.          254.78163147   23.45700836  549.00476074  230.19146729]
+ [   0.          170.52770996   25.79391479  501.3034668   395.        ]
+ ..., 
+ [   0.           23.48809052  127.56433868  187.47293091  270.05273438]
+ [   0.          429.96466064  161.85113525  606.46368408  259.31774902]
+ [   0.          681.71240234   65.63019562  993.48071289  271.74621582]]
+proposal_target_layer.py -- bbox_targets value        [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+proposal_target_layer.py -- all phrases               [[   0.  199.  198.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   0.  199.  205.    0.    0.    0.    0.    0.    0.    0.    0.]
+ [   1.  126.   84.    0.    0.    0.    0.    0.    0.    0.    0.]]
+proposal_target_layer.py ========== rois shape                (256, 5)
+proposal_target_layer.py ========== roi_scores shape          (256,)
+proposal_target_layer.py ========== labels shape              (256, 1)
+proposal_target_layer.py ========== bbox_targets shape        (256, 20)
+proposal_target_layer.py ========== bbox_inside_weights shape (256, 20)
+proposal_target_layer.py ========== sentences shape           (256, 10)
+proposal_target_layer.py ========== answers   shape           (256, 10)
