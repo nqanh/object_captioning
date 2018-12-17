@@ -32,18 +32,18 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 If you find this source code useful in your research, please consider citing:
 
-@article{DBLP:journals/corr/abs-1803-06152,
-  author    = {Anh Nguyen and
-               Thanh{-}Toan Do and
-               Ian D. Reid and
-               Darwin G. Caldwell and
-               Nikos G.Tsagarakis},
-  title     = {Object Captioning and Retrieval with Natural Language},
-  journal   = {CoRR},
-  volume    = {abs/1803.06152},
-  year      = {2018},
-  url       = {http://arxiv.org/abs/1803.06152},
-}
+	@article{DBLP:journals/corr/abs-1803-06152,
+	  author    = {Anh Nguyen and
+				   Thanh{-}Toan Do and
+				   Ian D. Reid and
+				   Darwin G. Caldwell and
+				   Nikos G.Tsagarakis},
+	  title     = {Object Captioning and Retrieval with Natural Language},
+	  journal   = {CoRR},
+	  volume    = {abs/1803.06152},
+	  year      = {2018},
+	  url       = {http://arxiv.org/abs/1803.06152},
+	}
 
 
 ### License
