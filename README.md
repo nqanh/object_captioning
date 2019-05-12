@@ -1,5 +1,5 @@
 ## [Object Captioning and Retrieval with Natural Language](https://arxiv.org/pdf/1803.06152.pdf)
-By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
+By [Anh Nguyen](https://sites.google.com/site/quanganh0104/)(, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 ![object_captioning](https://raw.githubusercontent.com/nqanh/object_captioning/master/data/git_img/1348947380.jpg "object_captioning")
 
@@ -59,5 +59,5 @@ This repo used a lot of source code from [Faster-RCNN](https://github.com/rbgirs
 
 
 ### Contact
-If you have any questions or comments, please send an email to: `anh.nguyen@iit.it`
+If you have any questions or comments, please send an email to: `a.nguyen@ic.ac.uk`
 
