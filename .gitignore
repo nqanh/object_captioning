@@ -7,5 +7,5 @@ lib/pycocotools/_mask.c
 lib/pycocotools/_mask.so
 .project  
 .pydevproject
-data
+data/VOCdevkit2007
 trained_weight
