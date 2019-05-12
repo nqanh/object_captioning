@@ -22,7 +22,7 @@ By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), Thanh-Toan Do, Ian
 - Download the [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset, and put it under your `$PROJECT_PATH\data\VOCdevkit2007` folder
 - Change the project path in file `lib/model/config.py`: `__C.root_folder_path = '$PROJECT_PATH'` 
 - Build the lib module: `cd $PROJECT_PATH/lib` then `make`
-- Run the demo: `cd $PROJECT_PATH/tool` the `python demo_caption.py` to generate captions for your images
+- Run the demo: `cd $PROJECT_PATH/tool` then `python demo_caption.py` to generate captions for your images
 	
 	
 ### Training
