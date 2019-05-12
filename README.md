@@ -1,7 +1,7 @@
 ## [Object Captioning and Retrieval with Natural Language](https://arxiv.org/pdf/1803.06152.pdf)
 By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
-![object_captioning](https://raw.githubusercontent.com/nqanh/affordance-net/master/tools/temp_output/iit_aff_dataset.jpg "affordance-net")
+![object_captioning](https://raw.githubusercontent.com/nqanh/object_captioning/master/data/git_img/1348947380.jpg "object_captioning")
 
 
 ### Contents
@@ -20,7 +20,7 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 - Clone the repo to your `$PROJECT_PATH` folder
 - Download pretrained weight from [this link](#), and put it under your `$PROJECT_PATH\trained_weight` folder
 - Download the [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset, and put it under your `$PROJECT_PATH\data\VOCdevkit2007` folder
-- Change the project path in file `lib/model/config.py`: `__C.root_folder_path = 'YOUR_PROJECT_PATH'` 
+- Change the project path in file `lib/model/config.py`: `__C.root_folder_path = '$PROJECT_PATH'` 
 - Build the lib module: `cd $PROJECT_PATH/lib` then `make`
 - Run the demo: `cd $PROJECT_PATH/tool` the `python demo_caption.py` to generate captions for your images
 	
@@ -32,7 +32,7 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 	- For your convinience, we did it for you. Just download this file ([Google Drive](https://drive.google.com/file/d/1FIAvc9AsSGYEYQmvJ1zH51FhXPos8vEc/view?usp=sharing) and extract it into your `$PROJECT_PATH\data\VOCdevkit2007` folder.
 
 2. Train the network:
-	- `python PROJECT_PATH/tool/trainval_net`
+	- `python $PROJECT_PATH/tool/trainval_net.py`
 
 
 If you find this source code useful in your research, please consider citing:
