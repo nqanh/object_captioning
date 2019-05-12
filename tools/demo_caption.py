@@ -164,16 +164,10 @@ def demo_img_caption(sess, net, image_name):
     
     
     print('Detection took {:.3f}s for {:d} object proposals'.format(timer.total_time, boxes.shape[0]))
-    print('------ Output answers: {:s}'.format(answers))
-    print('------ Out boxes shape     : {:s}'.format(boxes.shape))
-    print('------ Out score shape     : {:s}'.format(scores.shape))   # IF rois = x --> shape = (x, 5) --> 5 object class, each has a score 
-    #print('------ Out boxes     : {:s}'.format(boxes))
-    #print('------ Out score     : {:s}'.format(scores))
-    
-    
-    
-    #print('Output answers shape: {}'.format(np.asarray(answers).shape))  ## e.g. (1, 300, 5)
-    #answers = np.squeeze(answers, 0) ## fix problem when use 2 sees.run  ## ---> (300, 5)
+    #print('------ Output answers: {:s}'.format(answers))
+    #print('------ Out boxes shape     : {:s}'.format(boxes.shape))
+    #print('------ Out score shape     : {:s}'.format(scores.shape))   # IF rois = x --> shape = (x, 5) --> 5 object class, each has a score 
+
 
     # Visualize detections for each class
     CONF_THRESH = 0.8
@@ -191,8 +185,6 @@ def demo_img_caption(sess, net, image_name):
         selected_answers = answers[keep, :]
         #print ('Selected answers: {:s}'.format(selected_answers))
         
-        # Anh them vo --> select out answers
-        #generated_sentences
         
         #vis_detections(im, cls, dets, thresh=CONF_THRESH)        
         vis_detections_with_caption(im, cls, dets, selected_answers, thresh=CONF_THRESH)
@@ -212,19 +204,12 @@ if __name__ == '__main__':
     cfg.TEST.HAS_RPN = True  # Use RPN for proposals
     args = parse_args()
 
-    # model path
-    
-    #main_path = ''
     
     demonet = args.demo_net
     dataset = args.dataset
-    #tfmodel = os.path.join('output', demonet, DATASETS[dataset][0], 'default', NETS[demonet][0])
-    #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.tod.source/main/tf-faster-rcnn/data/voc_2007_trainval+voc_2012_trainval/res101_faster_rcnn_iter_110000.ckpt'
-    #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/voc_2007_trainval+voc_2012_trainval/res101_faster_rcnn_iter_110000.ckpt'
-    #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default/backup/1st_ok_weight/vgg16_faster_rcnn_iter_5000.ckpt' ## weight with caption
-    tfmodel = '/home/anh/workspace/y_testbox/object_captioning/trained_weight/vgg16_faster_rcnn_iter_400000.ckpt'
-    #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_28000.ckpt'
-
+   
+    tfmodel = os.path.join(cfg.root_folder_path, 'trained_weight', 'vgg16_captioning_1_LSTM_iter_150000.ckpt')
+    
     if not os.path.isfile(tfmodel + '.meta'):
         raise IOError(('{:s} not found.\nDid you download the proper networks from '
                        'our server and place them properly?').format(tfmodel + '.meta'))
@@ -249,16 +234,13 @@ if __name__ == '__main__':
 
     print('Loaded network {:s}'.format(tfmodel))
 
-    #im_names = ['1021442086.jpg', '100207720.jpg', '101654506.jpg', '1019604187.jpg']
-    im_names = ['100207720.jpg', '101654506.jpg', '1019604187.jpg']
-    #im_names = ['1019604187.jpg']
-    #im_names = ['1029450589.jpg']
+    im_names = ['11808546.jpg']
+
     
     for im_name in im_names:
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         print('Demo for data/demo/{}'.format(im_name))
         
-        # Anh them vo
         demo_img_caption(sess, net, im_name)
 
     plt.show()

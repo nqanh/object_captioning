@@ -17,14 +17,17 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 ### Quick Demo
 - Clone the repo to your `$PROJECT_PATH` folder
 - Download pretrained weight from [this link](#), and put it under your `$PROJECT_PATH\trained_weight` folder
-- Run `python $Root\evaluation\demo_objcaption_net.py` to generate captions for your images
+- Download the [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset, and put it under your '$PROJECT_PATH\data\VOCdevkit2007' folder
+- Change the project path in file `lib/model/config.py`: `__C.root_folder_path = 'YOUR_PROJECT_PATH' 
+- Build lib module: `cd $PROJECT_PATH/lib` then `make`
+- Run `python $PROJECT_PATH/tool/demo_caption.py` to generate captions for your images
 	
 	
 ### Training
 
 1. We train the network on [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset
 	- We need to format Flickr5k dataset as in Pascal-VOC dataset for training.
-	- For your convinience, we did it for you. Just download this file ([Google Drive](https://drive.google.com/file/d/1FIAvc9AsSGYEYQmvJ1zH51FhXPos8vEc/view?usp=sharing) and extract it into your `$PROJECT_PATH\data` folder.
+	- For your convinience, we did it for you. Just download this file ([Google Drive](https://drive.google.com/file/d/1FIAvc9AsSGYEYQmvJ1zH51FhXPos8vEc/view?usp=sharing) and extract it into your `$PROJECT_PATH\data\VOCdevkit2007` folder.
 
 2. Train the network:
 	- `python PROJECT_PATH/tool/trainval_net`
