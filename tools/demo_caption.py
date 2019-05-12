@@ -147,7 +147,6 @@ def demo(sess, net, image_name):
         vis_detections(im, cls, dets, thresh=CONF_THRESH)
 
 
-# Anh them vo        
 def demo_img_caption(sess, net, image_name):
     """Detect object classes in an image using pre-computed object proposals."""
 
@@ -223,7 +222,7 @@ if __name__ == '__main__':
     #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.tod.source/main/tf-faster-rcnn/data/voc_2007_trainval+voc_2012_trainval/res101_faster_rcnn_iter_110000.ckpt'
     #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/voc_2007_trainval+voc_2012_trainval/res101_faster_rcnn_iter_110000.ckpt'
     #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default/backup/1st_ok_weight/vgg16_faster_rcnn_iter_5000.ckpt' ## weight with caption
-    tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_5000.ckpt'
+    tfmodel = '/home/anh/workspace/y_testbox/object_captioning/trained_weight/vgg16_faster_rcnn_iter_400000.ckpt'
     #tfmodel = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_28000.ckpt'
 
     if not os.path.isfile(tfmodel + '.meta'):

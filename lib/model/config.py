@@ -13,8 +13,8 @@ __C = edict()
 #   from fast_rcnn_config import cfg
 cfg = __C
 
-#__C.root_folder_path = '/media/anh/Ubuntu/paper_src/2018.iros.ood.source/main/tf-faster-rcnn'
-__C.root_folder_path = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn'
+
+__C.root_folder_path = '/home/anh/workspace/y_testbox/object_captioning'
 
 
 # Anh params
@@ -23,7 +23,7 @@ __C.VIS_VERBOSE = 0
 #__C.MAX_PHRASE_LENGTH = 10 # max phrase length for each bbox
 __C.MAX_PHRASE_LENGTH = 6 # max phrase length for each bbox
 __C.SPECIAL_TOKEN = 0 # do not change
-#__C.IXTOWORD_PATH = '/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/Words/ixtoword.npy'
+
 __C.IXTOWORD_PATH = os.path.join(__C.root_folder_path, 'data/VOCdevkit2007/VOC2007/Words/ixtoword.npy')
 
 __C.OBJECT_NAMES = ('__background__', 'people', 'instruments', 'animals', 'vehicles') 
@@ -35,17 +35,10 @@ __C.OBJECT_NAMES = ('__background__', 'people', 'instruments', 'animals', 'vehic
 __C.img_feature_dim = 4096 # VGG feature
 #__C.num_lstm_hidden_units = 256
 __C.num_lstm_hidden_units = 512
-#__C.vocab_size = 210 # toy test
-#__C.vocab_size = 1862 # all 30k image, threshold word = 5  
-#__C.vocab_size = 4051 # 10k image # 4049 + 2 (unknown + eos) # word_threshold=1
-#__C.vocab_size = 1610 # 10k image # 1608 + 2 (unknown + eos) # word_threshold=3
 __C.vocab_size = 866 # 5k image # 864 + 2 (unknown + eos) # word_threshold=2
 __C.num_lstm_time_steps = __C.MAX_PHRASE_LENGTH  ## MUST EQUAL WITH max_phrase_length
 #__C.bias_init_vector = None
-#__C.bias_init_vector = np.load('/home/anguyen/workspace/paper_src/2018.iros.ood.source/main/tf-faster-rcnn/data/VOCdevkit2007/VOC2007/Words/bias_init_vector.npy')
 __C.bias_init_vector = np.load(osp.join(__C.root_folder_path, 'data/VOCdevkit2007/VOC2007/Words/bias_init_vector.npy'))
-
-#__C.max_test_batch_size = 300 # maximum number of rois at test time --> if not enough 300 rois --> pad at the end, if more than 300 --> cut
 
 
 
