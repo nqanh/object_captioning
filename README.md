@@ -18,7 +18,7 @@ By Anh Nguyen, Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 ### Quick Demo
 - Clone the repo to your `$PROJECT_PATH` folder
-- Download pretrained weight from [this link](#), and put it under your `$PROJECT_PATH\trained_weight` folder
+- Download pretrained weight from [this link](https://drive.google.com/drive/folders/1DsUUDEUtxL9IE2u728qpzclAkOz45C1v?usp=sharing), and put it under your `$PROJECT_PATH\trained_weight` folder
 - Download the [Flickr5k](https://sites.google.com/site/objcaptioningretrieval/) dataset, and put it under your `$PROJECT_PATH\data\VOCdevkit2007` folder
 - Change the project path in file `lib/model/config.py`: `__C.root_folder_path = '$PROJECT_PATH'` 
 - Build the lib module: `cd $PROJECT_PATH/lib` then `make`
