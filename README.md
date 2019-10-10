@@ -1,5 +1,5 @@
 ## [Object Captioning and Retrieval with Natural Language](https://arxiv.org/pdf/1803.06152.pdf)
-By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
+By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), [Quang D. Tran] (https://ai.aioz.io/), Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 ![object_captioning](https://raw.githubusercontent.com/nqanh/object_captioning/master/data/git_img/1348947380.jpg "object_captioning")
 
@@ -37,17 +37,16 @@ By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), Thanh-Toan Do, Ian
 
 If you find this source code useful in your research, please consider citing:
 
-	@article{DBLP:journals/corr/abs-1803-06152,
+	@article{Nguyen_objcaption,
 	  author    = {Anh Nguyen and
+				   Duy Q. Tran and
 				   Thanh{-}Toan Do and
 				   Ian D. Reid and
 				   Darwin G. Caldwell and
 				   Nikos G.Tsagarakis},
 	  title     = {Object Captioning and Retrieval with Natural Language},
-	  journal   = {CoRR},
-	  volume    = {abs/1803.06152},
-	  year      = {2018},
-	  url       = {http://arxiv.org/abs/1803.06152},
+	  journal   = {International Conference on Computer Vision Workshop},
+	  year      = {2019},
 	}
 
 
