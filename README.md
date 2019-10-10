@@ -1,5 +1,5 @@
 ## [Object Captioning and Retrieval with Natural Language](https://arxiv.org/pdf/1803.06152.pdf)
-By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), [Quang D. Tran] (https://ai.aioz.io/), Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
+By [Anh Nguyen](https://sites.google.com/site/quanganh0104/), [Quang D. Tran](https://ai.aioz.io/), Thanh-Toan Do, Ian Reid, Darwin G. Caldwell, Nikos G. Tsagarakis
 
 ![object_captioning](https://raw.githubusercontent.com/nqanh/object_captioning/master/data/git_img/1348947380.jpg "object_captioning")
 
